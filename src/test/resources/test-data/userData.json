@@ -1,0 +1,67 @@
+[
+  {
+    "email": "arthasMenethil448@fexpost.com",
+    "password": "44Icemourne44",
+    "userData": "Arthas Menethil",
+    "phone": "375293999999",
+    "age": "36-45",
+    "occupation": "Руководитель",
+    "street": "Максима Багданвича",
+    "house": "23",
+    "apartment": "45",
+    "porch": "3",
+    "floor": "4"
+  },
+  {
+    "email": "kelThuzattt@fexpost.com",
+    "password": "Nerzhul777Forever",
+    "userData": "Kel Thuzad",
+    "phone": "375293374479",
+    "age": "66 и старше",
+    "occupation": "Домохозяйка",
+    "street": "Янки Купаллы",
+    "house": "21",
+    "apartment": "34",
+    "porch": "2",
+    "floor": "3"
+  },
+  {
+    "email": "anubbArakk@fexpost.com",
+    "password": "66 и старше",
+    "userData": "Anub Arak",
+    "phone": "375293374479",
+    "age": "36-45",
+    "occupation": "Служащий",
+    "street": "Немига",
+    "house": "21",
+    "apartment": "32",
+    "porch": "6",
+    "floor": "10"
+  },
+  {
+    "email": "kaellThass@fexpost.com",
+    "password": "55un5trider",
+    "userData": "Kael Thas",
+    "phone": "375293374479",
+    "age": "20 и моложе",
+    "occupation": "Студент",
+    "street": "Городской Вал",
+    "house": "10",
+    "apartment": "34",
+    "porch": "2",
+    "floor": "3"
+  },
+  {
+    "email": "demonDiablo@fexpost.com",
+    "password": "666PEvils",
+    "userData": "Diablo Demon",
+    "phone": "375293374666",
+    "age": "56-65",
+    "occupation": "Пенсионер",
+    "street": "Революционная",
+    "house": "66",
+    "apartment": "6",
+    "porch": "1",
+    "floor": "2"
+  }
+]
