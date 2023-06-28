@@ -8,9 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PizzaTestData {
-    String bavariaPizzaPrice;
-    String temptingPizzaPrice;
-    String sicilyPizzaPrice;
-    String sicilyTemptingPizzaPrices;
-    String sicilyTemptingBavariaPizzaPrices;
+    double bavariaPizzaPrice;
+    double temptingPizzaPrice;
+    double sicilyPizzaPrice;
+    String bavariaPizzaName;
+    String temptingPizzaName;
+    String sicilyPizzaName;
 }

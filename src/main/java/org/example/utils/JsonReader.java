@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class JsonReader {
+
     @DataProvider(name = "userData")
     public Object[][] getUserData() throws IOException {
         String filePath = "src/test/resources/test-data/userData.json";

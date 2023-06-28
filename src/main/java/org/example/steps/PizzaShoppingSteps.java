@@ -8,22 +8,10 @@ import org.example.pages.PizzaShoppingPage;
 public class PizzaShoppingSteps {
     PizzaShoppingPage pizzaShoppingPage = new PizzaShoppingPage();
 
-    @Step("Enter Bavaria pizza")
-    public void enterBavariaPizzaButton() {
-        log.info("Enter Bavaria pizza");
-        pizzaShoppingPage.getBavarianPizzaButton().click();
-    }
-
-    @Step("Enter Tempting pizza")
-    public void enterTemptingPizzaButton() {
-        log.info("Enter Tempting pizza");
-        pizzaShoppingPage.getTemptingPizzaButton().click();
-    }
-
-    @Step("Enter Sicily pizza")
-    public void enterSicilyPizzaButton() {
-        log.info("Enter Sicily pizza");
-        pizzaShoppingPage.getSicilyPizzaButton().click();
+    @Step("Enter pizza button")
+    public void enterPizzaButton(String pizzaName) {
+        log.info("Enter " + pizzaName + " pizza");
+        pizzaShoppingPage.getPizzaButton(pizzaName).click();
     }
 
     @Step("Remove pizza from cart")
