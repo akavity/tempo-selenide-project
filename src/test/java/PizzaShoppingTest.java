@@ -1,18 +1,20 @@
 import io.qameta.allure.Issue;
-import org.example.models.PizzaPrice;
+import org.example.models.PizzaTestData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.PizzaShoppingSteps;
-import org.example.utils.JsonReaderPrices;
+import org.example.utils.JsonReader;
+import org.example.utils.Waiters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PizzaShoppingTest extends BaseTest {
     PizzaShoppingSteps pizzaShoppingSteps = new PizzaShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
+    Waiters waiters = new Waiters();
 
     @Test(description = "Check pizza price in cart: Bavaria",
-            dataProvider = "pizzaPrice", dataProviderClass = JsonReaderPrices.class)
-    public void checkPizzaShoppingTest1(PizzaPrice pizzaPrice) {
+            dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
+    public void checkPizzaShoppingTest1(PizzaTestData pizzaPrice) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
         pizzaShoppingSteps.enterBavariaPizzaButton();
@@ -22,8 +24,8 @@ public class PizzaShoppingTest extends BaseTest {
     }
 
     @Test(description = "Check pizza price in cart: Tempting",
-            dataProvider = "pizzaPrice", dataProviderClass = JsonReaderPrices.class)
-    public void checkPizzaShoppingTest3(PizzaPrice pizzaPrice) {
+            dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
+    public void checkPizzaShoppingTest3(PizzaTestData pizzaPrice) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
         pizzaShoppingSteps.enterTemptingPizzaButton();
@@ -33,8 +35,8 @@ public class PizzaShoppingTest extends BaseTest {
     }
 
     @Test(description = "Check pizza price in cart: Sicily",
-            dataProvider = "pizzaPrice", dataProviderClass = JsonReaderPrices.class)
-    public void checkPizzaShoppingTest2(PizzaPrice pizzaPrice) {
+            dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
+    public void checkPizzaShoppingTest2(PizzaTestData pizzaPrice) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
         pizzaShoppingSteps.enterSicilyPizzaButton();
@@ -45,22 +47,23 @@ public class PizzaShoppingTest extends BaseTest {
 
     @Issue("Permanent error")
     @Test(description = "Check pizza price in cart: Sicily + Tempting",
-            dataProvider = "pizzaPrice", dataProviderClass = JsonReaderPrices.class)
-    public void checkPizzaShoppingTest4(PizzaPrice pizzaPrice) {
+            dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
+    public void checkPizzaShoppingTest4(PizzaTestData pizzaPrice) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
         pizzaShoppingSteps.enterTemptingPizzaButton();
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterSicilyPizzaButton();
         pizzaShoppingSteps.enterSubmitButton();
+        waiters.sleep();
 
         Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getSicilyTemptingPizzaPrices()));
     }
 
     @Issue("Permanent error")
     @Test(description = "Check pizza price in cart: Sicily + Tempting + Bavaria",
-            dataProvider = "pizzaPrice", dataProviderClass = JsonReaderPrices.class)
-    public void checkPizzaShoppingTest5(PizzaPrice pizzaPrice) {
+            dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
+    public void checkPizzaShoppingTest5(PizzaTestData pizzaPrice) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
         pizzaShoppingSteps.enterSicilyPizzaButton();
@@ -69,6 +72,7 @@ public class PizzaShoppingTest extends BaseTest {
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterBavariaPizzaButton();
         pizzaShoppingSteps.enterSubmitButton();
+        waiters.sleep();
 
         Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getSicilyTemptingBavariaPizzaPrices()));
     }

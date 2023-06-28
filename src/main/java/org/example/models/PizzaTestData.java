@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PizzaPrice {
+public class PizzaTestData {
     String bavariaPizzaPrice;
     String temptingPizzaPrice;
     String sicilyPizzaPrice;
