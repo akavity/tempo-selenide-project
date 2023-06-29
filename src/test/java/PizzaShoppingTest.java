@@ -1,4 +1,3 @@
-import io.qameta.allure.Issue;
 import org.example.models.PizzaTestData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.PizzaShoppingSteps;
@@ -12,68 +11,82 @@ public class PizzaShoppingTest extends BaseTest {
     MoveToSteps moveToSteps = new MoveToSteps();
     Waiters waiters = new Waiters();
 
-    @Test(description = "Check pizza price in cart: Bavaria",
+    @Test(description = "Check the price of pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
-    public void checkPizzaShoppingTest1(PizzaTestData pizzaPrice) {
+    public void checkPizzaShoppingTest1(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterBavariaPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
-        Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getBavariaPizzaPrice()));
+        double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
+        double expected = pizzaData.getBavariaPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
     }
 
-    @Test(description = "Check pizza price in cart: Tempting",
+    @Test(description = "Check the price of pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
-    public void checkPizzaShoppingTest3(PizzaTestData pizzaPrice) {
+    public void checkPizzaShoppingTest3(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterTemptingPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
-        Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getTemptingPizzaPrice()));
+        double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
+        double expected = pizzaData.getTemptingPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
     }
 
-    @Test(description = "Check pizza price in cart: Sicily",
+    @Test(description = "Check the price of pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
-    public void checkPizzaShoppingTest2(PizzaTestData pizzaPrice) {
+    public void checkPizzaShoppingTest2(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterSicilyPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
-        Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getSicilyPizzaPrice()));
+        double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
+        double expected = pizzaData.getTemptingPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
     }
 
-    @Issue("Permanent error")
-    @Test(description = "Check pizza price in cart: Sicily + Tempting",
+    @Test(description = "Check the price of pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
-    public void checkPizzaShoppingTest4(PizzaTestData pizzaPrice) {
+    public void checkPizzaShoppingTest4(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterTemptingPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterSicilyPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         waiters.sleep();
 
-        Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getSicilyTemptingPizzaPrices()));
+        double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
+        double expected = pizzaData.getTemptingPizzaPrice() + pizzaData.getSicilyPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
     }
 
-    @Issue("Permanent error")
-    @Test(description = "Check pizza price in cart: Sicily + Tempting + Bavaria",
+    @Test(description = "Check the price of pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
-    public void checkPizzaShoppingTest5(PizzaTestData pizzaPrice) {
+    public void checkPizzaShoppingTest5(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterSicilyPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterTemptingPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterBavariaPizzaButton();
+        pizzaShoppingSteps.enterPizzaButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         waiters.sleep();
 
-        Assert.assertTrue(pizzaShoppingSteps.getPrice().contains(pizzaPrice.getSicilyTemptingBavariaPizzaPrices()));
+        double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
+        double expected = pizzaData.getTemptingPizzaPrice() + pizzaData.getSicilyPizzaPrice()
+                + pizzaData.getBavariaPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
     }
 }

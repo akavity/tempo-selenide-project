@@ -6,12 +6,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PizzaShoppingPage {
-    private final SelenideElement bavariaPizzaButton =
-            $(By.xpath("//span[contains(text(), 'Баварская')]/../following-sibling::div//button"));
-    private final SelenideElement temptingPizzaButton =
-            $(By.xpath("//span[contains(text(), 'Аппетитная')]/../following-sibling::div//button"));
-    private final SelenideElement sicilyPizzaButton =
-            $(By.xpath("//span[contains(text(), 'Сицилийская')]/../following-sibling::div//button"));
     private final SelenideElement submitButton =
             $(By.xpath("//*[@id='order_pizza_popup']//button[contains(text(), 'Заказ')]"));
     private final SelenideElement priceField =
@@ -23,16 +17,8 @@ public class PizzaShoppingPage {
     private final SelenideElement openCloseButton =
             $(By.xpath("//div[@class='basket_placeholder']//div[@class='bs-toggler openClose']"));
 
-    public SelenideElement getBavarianPizzaButton() {
-        return bavariaPizzaButton;
-    }
-
-    public SelenideElement getTemptingPizzaButton() {
-        return temptingPizzaButton;
-    }
-
-    public SelenideElement getSicilyPizzaButton() {
-        return sicilyPizzaButton;
+    public SelenideElement getPizzaButton(String pizzaName) {
+        return $(By.xpath("//span[contains(text(), '" + pizzaName + "')]/../following-sibling::div//button"));
     }
 
     public SelenideElement getSubmitButton() {

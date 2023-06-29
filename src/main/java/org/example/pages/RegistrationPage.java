@@ -50,7 +50,6 @@ public class RegistrationPage {
     private final SelenideElement errorPhone =
             $(By.xpath("//div[contains (text(),'Контактный телефон')]"));
 
-
     public SelenideElement getUserAccountEmail() {
         return accountEmailField;
     }
