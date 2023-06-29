@@ -12,7 +12,6 @@ public class MoveToPage {
     private final SelenideElement pizzaButton =
             $(By.xpath("//li[@class=\"other\"]//a[ contains(@href, 'menu/pizza')]"));
 
-
     public SelenideElement getRegistrationButton() {
         return registrationButton;
     }
