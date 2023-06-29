@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="MainTest">
-    <test name="MainTest" parallel="false">
+<suite name="MainTest" parallel="tests" thread-count="2">
+
+    <test name="Registration">
+        <parameter name="startType" value="selenoid"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="latest"/>
         <classes>
             <class name="RegistrationTest">
                 <methods>
@@ -8,6 +12,14 @@
                     <include name="checkUserRegistered"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+
+    <test name="PizzaShopping">
+        <parameter name="startType" value="selenoid"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="latest"/>
+        <classes>
             <class name="PizzaShoppingTest">
                 <methods>
                     <include name="checkPizzaShoppingTest1"/>
@@ -19,4 +31,5 @@
             </class>
         </classes>
     </test>
+
 </suite>
