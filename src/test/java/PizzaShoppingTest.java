@@ -1,10 +1,13 @@
 import org.example.models.PizzaTestData;
+import org.example.models.PizzaTypeData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.PizzaShoppingSteps;
 import org.example.utils.JsonReader;
 import org.example.utils.Waiters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class PizzaShoppingTest extends BaseTest {
     PizzaShoppingSteps pizzaShoppingSteps = new PizzaShoppingSteps();
@@ -86,6 +89,20 @@ public class PizzaShoppingTest extends BaseTest {
         double actual = Double.parseDouble(pizzaShoppingSteps.getPrice());
         double expected = pizzaData.getTemptingPizzaPrice() + pizzaData.getSicilyPizzaPrice()
                 + pizzaData.getBavariaPizzaPrice();
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test(description = "Check pizza sorting by type",
+            dataProvider = "pizzaTypeData", dataProviderClass = JsonReader.class)
+    public void checkSortingByType(PizzaTypeData pizzaData) {
+        moveToSteps.moveToPizzaShopping();
+        pizzaShoppingSteps.isBasketEmpty();
+        pizzaShoppingSteps.choosePizzaType(pizzaData.getPizzaType());
+        pizzaShoppingSteps.enterResultButton();
+
+        List<String> actual = pizzaShoppingSteps.getArrayPizzaNames();
+        List<String> expected = pizzaData.getPizzaNames();
 
         Assert.assertEquals(actual, expected);
     }

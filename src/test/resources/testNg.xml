@@ -15,6 +15,7 @@
                     <include name="checkPizzaShoppingTest3"/>
                     <include name="checkPizzaShoppingTest4"/>
                     <include name="checkPizzaShoppingTest5"/>
+                    <include name="checkSortingByType"/>
                 </methods>
             </class>
         </classes>
