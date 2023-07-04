@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage {
-
     private final SelenideElement accountEmailField =
             $(By.xpath("//input[@name='astroauth_login']"));
     private final SelenideElement accountPasswordField =

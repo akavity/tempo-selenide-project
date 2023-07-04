@@ -19,4 +19,10 @@ public class MoveToSteps {
         log.info("Move to  pizza shopping");
         moveToPage.getPizzaButton().click();
     }
+
+    @Step("Move to basket")
+    public void moveToBasket() {
+        log.info("Move to basket");
+        moveToPage.getBasketButton().click();
+    }
 }

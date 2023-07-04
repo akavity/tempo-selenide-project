@@ -51,10 +51,17 @@ public class PizzaShoppingSteps {
         pizzaShoppingPage.getSubmitButton().click();
     }
 
-    @Step("Get pizza price")
-    public String getPrice() {
-        log.info("Get pizza price");
-        return pizzaShoppingPage.getPriceField().getAttribute("data-price");
+    @Step("Get price from cart")
+    public String getPriceFromBasketTop() {
+        log.info("Get price from cart");
+        return pizzaShoppingPage.getPriceBasketTopField().getAttribute("data-price");
+    }
+
+    @Step("Get price from cart")
+    public String getPriceFromCart() {
+        log.info("Get price from cart");
+        return pizzaShoppingPage.getPriceCartField().getText()
+                .replace("р", "").replace("к.", "");
     }
 
     @Step("Get array pizza names by type")
