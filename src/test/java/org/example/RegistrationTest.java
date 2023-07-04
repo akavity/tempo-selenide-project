@@ -1,3 +1,5 @@
+package org.example;
+
 import org.example.models.UserData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.RegistrationSteps;

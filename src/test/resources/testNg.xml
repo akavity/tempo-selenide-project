@@ -2,13 +2,13 @@
 <suite name="MainTest">
     <test name="MainTest" parallel="false">
         <classes>
-            <class name="RegistrationTest">
+            <class name="org.example.RegistrationTest">
                 <methods>
                     <include name="checkTempoPizzaRegistration"/>
                     <include name="checkUserRegistered"/>
                 </methods>
             </class>
-            <class name="PizzaShoppingTest">
+            <class name="org.example.PizzaShoppingTest">
                 <methods>
                     <include name="checkPriceOfGoodInBasketTopTest1"/>
                     <include name="checkPriceOfGoodInBasketTopTest2"/>
