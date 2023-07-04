@@ -3,7 +3,7 @@ package org.example.steps;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.example.pages.PizzaShoppingPage;
+import org.example.pages.ShoppingPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,35 +11,35 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Log4j2
-public class PizzaShoppingSteps {
-    PizzaShoppingPage pizzaShoppingPage = new PizzaShoppingPage();
+public class ShoppingSteps {
+    ShoppingPage shoppingPage = new ShoppingPage();
 
-    @Step("Enter pizza button")
-    public void enterPizzaButton(String pizzaName) {
-        log.info("Enter " + pizzaName + " pizza");
-        pizzaShoppingPage.getPizzaButton(pizzaName).click();
+    @Step("Enter good button")
+    public void enterGoodButton(String goodName) {
+        log.info("Enter " + goodName + " pizza");
+        shoppingPage.getGoodButton(goodName).click();
     }
 
     @Step("Choose pizza type")
     public void choosePizzaType(String pizzaType) {
         log.info("Choose " + pizzaType + " pizza");
-        pizzaShoppingPage.getPizzaTypeButton(pizzaType).click();
+        shoppingPage.getPizzaTypeButton(pizzaType).click();
     }
 
     @Step("Enter result button")
     public void enterResultButton() {
         log.info("Enter result button");
-        pizzaShoppingPage.getResultButton().click();
+        shoppingPage.getResultButton().click();
     }
 
-    @Step("Remove pizza from cart")
+    @Step("Remove good from cart")
     public void isBasketEmpty() {
         int flag = 0;
-        while (!pizzaShoppingPage.getEmptyBasketField().isDisplayed()) {
+        while (!shoppingPage.getEmptyBasketField().isDisplayed()) {
             if (flag == 0) {
-                pizzaShoppingPage.getOpenCloseButton().click();
+                shoppingPage.getOpenCloseButton().click();
             }
-            pizzaShoppingPage.getRemoveOrderButton().click();
+            shoppingPage.getRemoveOrderButton().click();
             flag++;
         }
         flag = 0;
@@ -48,19 +48,19 @@ public class PizzaShoppingSteps {
     @Step("Enter submit button")
     public void enterSubmitButton() {
         log.info("Enter submit button");
-        pizzaShoppingPage.getSubmitButton().click();
+        shoppingPage.getSubmitButton().click();
     }
 
     @Step("Get price from cart")
     public String getPriceFromBasketTop() {
         log.info("Get price from cart");
-        return pizzaShoppingPage.getPriceBasketTopField().getAttribute("data-price");
+        return shoppingPage.getPriceBasketTopField().getAttribute("data-price");
     }
 
     @Step("Get price from cart")
     public String getPriceFromCart() {
         log.info("Get price from cart");
-        return pizzaShoppingPage.getPriceCartField().getText()
+        return shoppingPage.getPriceCartField().getText()
                 .replace("р", "").replace("к.", "");
     }
 
@@ -69,7 +69,7 @@ public class PizzaShoppingSteps {
         log.info("Create array pizza names");
         List<String> arrayPizzaNames = new ArrayList<>();
 
-        for (SelenideElement pizzaText : pizzaShoppingPage.getPizzaNames()) {
+        for (SelenideElement pizzaText : shoppingPage.getGoodsNames()) {
             log.info("fine pizza: " + pizzaText.getText());
             Pattern pattern = Pattern.compile("\"(.*)\"");
             Matcher matcher = pattern.matcher(pizzaText.getText());

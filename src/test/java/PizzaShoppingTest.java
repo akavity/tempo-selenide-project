@@ -2,7 +2,7 @@ import io.qameta.allure.Flaky;
 import org.example.models.PizzaTestData;
 import org.example.models.PizzaTypeData;
 import org.example.steps.MoveToSteps;
-import org.example.steps.PizzaShoppingSteps;
+import org.example.steps.ShoppingSteps;
 import org.example.utils.JsonReader;
 import org.example.utils.Waiters;
 import org.testng.Assert;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class PizzaShoppingTest extends BaseTest {
-    PizzaShoppingSteps pizzaShoppingSteps = new PizzaShoppingSteps();
+    ShoppingSteps pizzaShoppingSteps = new ShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
     Waiters waiters = new Waiters();
 
@@ -21,7 +21,7 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfGoodInBasketTopTest1(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getBavariaPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
         double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
@@ -36,7 +36,7 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfGoodInBasketTopTest2(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
         double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
@@ -51,7 +51,7 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfGoodInBasketTopTest3(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
         double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
@@ -65,9 +65,9 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfTwoGoodsInBasketTop(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         waiters.sleep();
 
@@ -82,11 +82,11 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfTreeGoodsInBasketTop(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getBavariaPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         waiters.sleep();
 
@@ -102,7 +102,7 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfGoodInCart(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
@@ -117,9 +117,9 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfTwoGoodsInCart(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
@@ -134,11 +134,11 @@ public class PizzaShoppingTest extends BaseTest {
     public void checkPriceOfTreeGoodsInCart(PizzaTestData pizzaData) {
         moveToSteps.moveToPizzaShopping();
         pizzaShoppingSteps.isBasketEmpty();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getSicilyPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getTemptingPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterPizzaButton(pizzaData.getBavariaPizzaName());
+        pizzaShoppingSteps.enterGoodButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
