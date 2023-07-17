@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selectors.withText;
 
 @Log4j2
 public class RegistrationSteps {
-
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Step("Enter email")
