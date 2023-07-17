@@ -51,9 +51,9 @@ public class ShoppingSteps {
         shoppingPage.getSubmitButton().click();
     }
 
-    @Step("Get price from cart")
+    @Step("Get price from basket top")
     public String getPriceFromBasketTop() {
-        log.info("Get price from cart");
+        log.info("Get price basket top");
         return shoppingPage.getPriceBasketTopField().getAttribute("data-price");
     }
 
