@@ -6,7 +6,7 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="version" value="latest"/>
         <classes>
-            <class name="RegistrationTest">
+            <class name="org.example.RegistrationTest">
                 <methods>
                     <include name="checkTempoPizzaRegistration"/>
                     <include name="checkUserRegistered"/>
@@ -20,7 +20,7 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="version" value="latest"/>
         <classes>
-            <class name="PizzaShoppingTest">
+            <class name="org.example.PizzaShoppingTest">
                 <methods>
                     <include name="checkPriceOfGoodInBasketTopTest1"/>
                     <include name="checkPriceOfGoodInBasketTopTest2"/>

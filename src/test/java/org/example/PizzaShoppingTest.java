@@ -1,3 +1,5 @@
+package org.example;
+
 import io.qameta.allure.Flaky;
 import org.example.models.PizzaTestData;
 import org.example.models.PizzaTypeData;
