@@ -25,13 +25,9 @@ public class RegistrationPage {
     private final SelenideElement phoneField =
             $(By.xpath("//input[@name='phone']"));
     private final SelenideElement genderMaleButton =
-            $(By.xpath("//input[@ value='мужской']"));
-    private final SelenideElement genderFemaleButton =
-            $(By.xpath("//input[@ value='женский']"));
-    private final SelenideElement subscribeButton =
-            $(By.xpath("//input[@name='subscribe']"));
+            $(By.xpath("//input[@value='мужской']"));
     private final SelenideElement ageDropDown =
-            $(By.xpath("//select[@ name='age']"));
+            $(By.xpath("//select[@name='age']"));
     private final SelenideElement occupationDropDown =
             $(By.xpath("//select[@name='occupation']"));
     private final SelenideElement streetField =
@@ -87,14 +83,6 @@ public class RegistrationPage {
 
     public SelenideElement getGenderMaleButton() {
         return genderMaleButton;
-    }
-
-    public SelenideElement getGenderFemaleButton() {
-        return genderFemaleButton;
-    }
-
-    public SelenideElement getSubscribeButton() {
-        return subscribeButton;
     }
 
     public SelenideElement getAgeDropDown() {

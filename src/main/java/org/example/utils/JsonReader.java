@@ -1,5 +1,6 @@
 package org.example.utils;
 
+
 import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 import org.example.models.PizzaTestData;

@@ -18,7 +18,6 @@ public class PizzaShoppingTest extends BaseTest {
     MoveToSteps moveToSteps = new MoveToSteps();
     Utils utils = new Utils();
 
-
     @Test(description = "Check the price of 'Bavaria' pizza in the cart",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)
     public void checkPriceOfGoodInBasketTopTest1(PizzaTestData pizzaData) {
@@ -31,7 +30,6 @@ public class PizzaShoppingTest extends BaseTest {
 
         Assert.assertEquals(actual, expected);
     }
-
 
     @Test(description = "Check the price of 'Tempting' pizza in the basket top",
             dataProvider = "pizzaTestData", dataProviderClass = JsonReader.class)

@@ -9,7 +9,7 @@ public class MoveToPage {
     private final SelenideElement registrationButton =
             $(By.xpath("//a[contains(text(), 'Регистрация')]"));
     private final SelenideElement pizzaButton =
-            $(By.xpath("//li[@class=\"other\"]//a[ contains(@href, 'menu/pizza')]"));
+            $(By.xpath("//li[@class=\"other\"]//a[contains(@href, 'menu/pizza')]"));
     private final SelenideElement basketButton =
             $(By.xpath("//div[@class=\"basket\"]//div[@class=\"bs-price-col\"]"));
 
