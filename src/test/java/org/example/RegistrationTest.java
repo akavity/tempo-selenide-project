@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.annotatins.TestData;
 import org.example.models.UserData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.RegistrationSteps;
@@ -11,8 +12,9 @@ public class RegistrationTest extends BaseTest {
     RegistrationSteps registrationSteps = new RegistrationSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
 
-    @Test(description = "Make a mistake during registration",
-            dataProvider = "userData", dataProviderClass = JsonReader.class)
+    @TestData(jsonFile = "userData", model = "UserData")
+    @Test(description = "Check registration form data",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void makeMistakeDuringRegistration(UserData userData) {
         moveToSteps.moveToRegistrationForm();
         registrationSteps.enterEmail(userData.getEmail());
@@ -33,8 +35,9 @@ public class RegistrationTest extends BaseTest {
         Assert.assertTrue(registrationSteps.isThereErrorPhone(userData.getError()));
     }
 
-    @Test(description = "Log in as an unregistered user",
-            dataProvider = "userData", dataProviderClass = JsonReader.class)
+    @TestData(jsonFile = "userData", model = "UserData")
+    @Test(description = "Check user registered",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void logInAsUnregisteredUser(UserData userData) {
         registrationSteps.enterUserAccountEmail(userData.getEmail());
         registrationSteps.enterUserAccountPassword(userData.getPassword());
