@@ -15,12 +15,6 @@ public class ShoppingPage {
             $(By.xpath("//div[@class='basketOuter']//span[@class='bs-price']//span[@class='price_byn']"));
     private final SelenideElement priceCartField =
             $(By.xpath("//div[@id='basket_sum_all']//span[@class='price_byn']"));
-    private final SelenideElement emptyBasketField =
-            $(By.xpath("//div[@class='bs-empty-col']"));
-    private final SelenideElement removeOrderButton =
-            $(By.xpath("//a[@title='Удалить из заказа']"));
-    private final SelenideElement openCloseButton =
-            $(By.xpath("//div[@class='basket_placeholder']//div[@class='bs-toggler openClose']"));
     private final ElementsCollection goodsNamesFields = $$(By.xpath("//h3//span"));
 
     public SelenideElement getPizzaTypeButton(String pizzaType) {
@@ -45,18 +39,6 @@ public class ShoppingPage {
 
     public SelenideElement getPriceCartField() {
         return priceCartField;
-    }
-
-    public SelenideElement getEmptyBasketField() {
-        return emptyBasketField;
-    }
-
-    public SelenideElement getRemoveOrderButton() {
-        return removeOrderButton;
-    }
-
-    public SelenideElement getOpenCloseButton() {
-        return openCloseButton;
     }
 
     public ElementsCollection getGoodsNames() {

@@ -19,4 +19,5 @@ public class UserData {
     String apartment;
     String porch;
     String floor;
+    String error;
 }

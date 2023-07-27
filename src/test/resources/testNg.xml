@@ -8,8 +8,8 @@
         <classes>
             <class name="org.example.RegistrationTest">
                 <methods>
-                    <include name="checkTempoPizzaRegistration"/>
-                    <include name="checkUserRegistered"/>
+                    <include name="makeMistakeDuringRegistration"/>
+                    <include name="logInAsUnregisteredUser"/>
                 </methods>
             </class>
         </classes>

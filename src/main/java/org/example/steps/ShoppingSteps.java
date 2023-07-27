@@ -32,19 +32,6 @@ public class ShoppingSteps {
         shoppingPage.getResultButton().click();
     }
 
-    @Step("Remove good from cart")
-    public void isBasketEmpty() {
-        int flag = 0;
-        while (!shoppingPage.getEmptyBasketField().isDisplayed()) {
-            if (flag == 0) {
-                shoppingPage.getOpenCloseButton().click();
-            }
-            shoppingPage.getRemoveOrderButton().click();
-            flag++;
-        }
-        flag = 0;
-    }
-
     @Step("Enter submit button")
     public void enterSubmitButton() {
         log.info("Enter submit button");
