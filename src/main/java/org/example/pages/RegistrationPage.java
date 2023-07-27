@@ -42,8 +42,10 @@ public class RegistrationPage {
             $(By.xpath("//input[@name='floor']"));
     private final SelenideElement submitButton =
             $(By.xpath("//button[contains (@class,'btn button')]"));
-    private final SelenideElement errorPhone =
-            $(By.xpath("//div[contains (text(),'Контактный телефон')]"));
+
+    public SelenideElement getErrorField(String errorType) {
+        return $(By.xpath("//div[contains (text(),'" + errorType + "')]"));
+    }
 
     public SelenideElement getUserAccountEmail() {
         return accountEmailField;
@@ -111,10 +113,6 @@ public class RegistrationPage {
 
     public SelenideElement getFloorField() {
         return floorField;
-    }
-
-    public SelenideElement getErrorPhone() {
-        return errorPhone;
     }
 
     public SelenideElement getSubmitButton() {

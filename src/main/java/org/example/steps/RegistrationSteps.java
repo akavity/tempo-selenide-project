@@ -43,7 +43,8 @@ public class RegistrationSteps {
     @Step("Enter mobile phone")
     public void enterPhone(String phone) {
         log.info("Enter mobile phone: " + phone);
-        registrationPage.getPhoneField().setValue(phone);
+        registrationPage.getPhoneField().click();
+        registrationPage.getPhoneField().sendKeys(phone);
     }
 
     @Step("Click gender button")
@@ -102,10 +103,10 @@ public class RegistrationSteps {
         registrationPage.getSubmitButton().click();
     }
 
-    @Step("Get Error Phone")
-    public boolean isThereErrorPhone() {
+    @Step("Get Error")
+    public boolean isThereErrorPhone(String error) {
         log.info("Get Error Phone");
-        return registrationPage.getErrorPhone().isDisplayed();
+        return registrationPage.getErrorField(error).isDisplayed();
     }
 
     @Step("Enter user account email")

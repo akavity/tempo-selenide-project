@@ -1,6 +1,6 @@
 [
   {
-    "email": "arthas44Menethil@fexpost.com",
+    "email": "arthas44Menethil",
     "password": "44Icemourne44",
     "userData": "Arthas Menethil",
     "phone": "375293999999",
@@ -10,11 +10,12 @@
     "house": "23",
     "apartment": "45",
     "porch": "3",
-    "floor": "4"
+    "floor": "4",
+    "error": "Недопустимый формат адреса электронной почты"
   },
   {
     "email": "kelThuzat66@fexpost.com",
-    "password": "Nerzhul777Forever",
+    "password": "66",
     "userData": "Kel Thuzad",
     "phone": "375293374479",
     "age": "66 и старше",
@@ -23,12 +24,13 @@
     "house": "21",
     "apartment": "34",
     "porch": "2",
-    "floor": "3"
+    "floor": "3",
+    "error": "Поле должно содержать не менее 3 символов"
   },
   {
     "email": "anubbArakk@fexpost.com",
     "password": "nubArak445",
-    "userData": "Anub Arak",
+    "userData": "",
     "phone": "375293374479",
     "age": "66 и старше",
     "occupation": "Служащий",
@@ -36,32 +38,49 @@
     "house": "21",
     "apartment": "32",
     "porch": "6",
-    "floor": "10"
+    "floor": "10",
+    "error": "Поле \"ФИО\" должно содержать"
   },
   {
     "email": "kaellThass@fexpost.com",
     "password": "55un5trider",
     "userData": "Kael Thas",
-    "phone": "375293374479",
+    "phone": "",
     "age": "20 и моложе",
     "occupation": "Студент",
     "street": "Городской Вал",
     "house": "10",
     "apartment": "34",
     "porch": "2",
-    "floor": "3"
+    "floor": "3",
+    "error": "Контактный телефон"
   },
   {
     "email": "demonDiablo@fexpost.com",
     "password": "666PEvils",
     "userData": "Diablo Demon",
     "phone": "375293374666",
-    "age": "56-65",
+    "age": "66 и старше",
     "occupation": "Пенсионер",
     "street": "Революционная",
-    "house": "66",
+    "house": "",
     "apartment": "6",
     "porch": "1",
-    "floor": "2"
+    "floor": "2",
+    "error": "Недопустимый формат"
+  },
+  {
+    "email": "demonMephisto@fexpost.com",
+    "password": "666PEvils666",
+    "userData": "Mephisto Demon",
+    "phone": "375666374666",
+    "age": "66 и старше",
+    "occupation": "Пенсионер",
+    "street": "Октябрьсная",
+    "house": "6",
+    "apartment": "",
+    "porch": "1",
+    "floor": "2",
+    "error": "Недопустимый формат"
   }
 ]
