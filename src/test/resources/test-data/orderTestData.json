@@ -1,0 +1,35 @@
+[
+  {
+    "orderType": "Пицца",
+    "firstProductName": "Баварская",
+    "firstProductPrice": 13.6,
+    "secondProductName": "Аппетитная",
+    "secondProductPrice": 13.4,
+    "thirdProductName": "Сицилийская",
+    "thirdProductPrice": 11.4,
+    "fourthProductName": "Везувий",
+    "fourthProductPrice": 9.6
+  },
+  {
+    "orderType": "Бургеры",
+    "firstProductName": "Бургер с курицей и рукколой",
+    "firstProductPrice": 18.6,
+    "secondProductName": "Бургер с говядиной",
+    "secondProductPrice": 21.1,
+    "thirdProductName": "Двойной бургер с говядиной",
+    "thirdProductPrice": 29.9,
+    "fourthProductName": "Сырные полоски",
+    "fourthProductPrice": 12.0
+  },
+  {
+    "orderType": "супы",
+    "firstProductName": "Суп Чили",
+    "firstProductPrice": 12.9,
+    "secondProductName": "Борщ с говяжьими щеками",
+    "secondProductPrice": 10.5,
+    "thirdProductName": "Холодник",
+    "thirdProductPrice": 8.9,
+    "fourthProductName": "Цезарь с теплой курицей",
+    "fourthProductPrice": 15.6
+  }
+]
