@@ -9,7 +9,7 @@
                     <include name="logInAsUnregisteredUser"/>
                 </methods>
             </class>
-            <class name="org.example.PizzaShoppingTest">
+            <class name="org.example.OrderShoppingTest">
                 <methods>
                     <include name="checkPriceOfGoodInBasketTopTest1"/>
                     <include name="checkPriceOfGoodInBasketTopTest2"/>
