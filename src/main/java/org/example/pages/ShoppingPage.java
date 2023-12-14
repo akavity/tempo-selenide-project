@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class ShoppingPage {
     private final SelenideElement submitButton =
-            $(By.xpath("//*[@id='order_pizza_popup']//button[contains(text(), 'Заказ')]"));
+            $(By.xpath("//div[@class='popupContent']//div[@class='order-btn']"));
     private final SelenideElement resultButton = $(By.id("getResultPickup"));
     private final SelenideElement priceBasketTopField =
             $(By.xpath("//div[@class='basketOuter']//span[@class='bs-price']//span[@class='price_byn']"));
@@ -22,7 +22,8 @@ public class ShoppingPage {
     }
 
     public SelenideElement getGoodButton(String goodName) {
-        return $(By.xpath("//span[contains(text(), '" + goodName + "')]/../following-sibling::div//button"));
+        return $(By.xpath("//span[contains(text(), '" + goodName + "')]/../" +
+                "following-sibling::div//div[@class='order-btn']"));
     }
 
     public SelenideElement getSubmitButton() {
