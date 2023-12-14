@@ -22,7 +22,8 @@ public class ShoppingPage {
     }
 
     public SelenideElement getGoodButton(String goodName) {
-        return $(By.xpath("//span[contains(text(), '" + goodName + "')]/../following-sibling::div//button"));
+        return $(By.xpath("//span[contains(text(), '" + goodName + "')]/../" +
+                "following-sibling::div//div[@class='order-btn']"));
     }
 
     public SelenideElement getSubmitButton() {
