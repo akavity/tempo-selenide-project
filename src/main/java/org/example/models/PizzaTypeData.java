@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PizzaTypeData {
+    String orderType;
     String pizzaType;
     List<String> pizzaNames;
 }

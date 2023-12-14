@@ -1,5 +1,6 @@
 [
   {
+    "orderType" : "Пицца",
     "pizzaType": "vegan",
     "pizzaNames": [
       "Маргарита",
@@ -8,6 +9,7 @@
     ]
   },
   {
+    "orderType" : "Пицца",
     "pizzaType": "chili",
     "pizzaNames": [
       "Сицилийская",

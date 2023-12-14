@@ -23,7 +23,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of 'Bavaria' pizza in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest1(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getBavariaPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
@@ -37,7 +37,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of 'Tempting' pizza in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest2(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
@@ -51,7 +51,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of 'Sicily' pizza in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest3(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
 
@@ -65,7 +65,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of two pizzas in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTwoGoodsInBasketTop(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
@@ -83,7 +83,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of three pizzas in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTreeGoodsInBasketTop(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
@@ -103,7 +103,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of 'Sicily' pizza in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInCart(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
@@ -118,7 +118,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of two pizzas in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTwoGoodsInCart(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
@@ -136,7 +136,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check the price of three pizzas in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTreeGoodsInCart(PizzaTestData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.enterGoodButton(pizzaData.getTemptingPizzaName());
         pizzaShoppingSteps.enterSubmitButton();
         pizzaShoppingSteps.enterGoodButton(pizzaData.getSicilyPizzaName());
@@ -156,7 +156,7 @@ public class PizzaShoppingTest extends BaseTest {
     @Test(description = "Check pizza sorting by type",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkSortingByType(PizzaTypeData pizzaData) {
-        moveToSteps.moveToPizzaShopping();
+        moveToSteps.moveToOrderType(pizzaData.getOrderType());
         pizzaShoppingSteps.choosePizzaType(pizzaData.getPizzaType());
         pizzaShoppingSteps.enterResultButton();
 

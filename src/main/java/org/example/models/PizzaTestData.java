@@ -16,4 +16,5 @@ public class PizzaTestData {
     String temptingPizzaName;
     String sicilyPizzaName;
     String vesuviusPizzaName;
+    String orderType;
 }

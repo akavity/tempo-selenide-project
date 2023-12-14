@@ -16,7 +16,7 @@ public class ShoppingSteps {
 
     @Step("Enter good button")
     public void enterGoodButton(String goodName) {
-        log.info("Enter " + goodName + " pizza");
+        log.info("Enter " + goodName);
         shoppingPage.getGoodButton(goodName).click();
     }
 
