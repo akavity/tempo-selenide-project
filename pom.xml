@@ -68,7 +68,7 @@
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
-            <version>6.15.0</version>
+            <version>6.19.0</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -91,6 +91,11 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
         </dependency>
 
     </dependencies>
