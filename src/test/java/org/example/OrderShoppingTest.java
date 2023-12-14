@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class OrderShoppingTest extends BaseTest {
-    ShoppingSteps pizzaShoppingSteps = new ShoppingSteps();
+    ShoppingSteps shoppingSteps = new ShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
     Utils utils = new Utils();
 
@@ -24,10 +24,10 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest1(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getFirstProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterSubmitButton();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getFirstProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -38,10 +38,10 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest2(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getSecondProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -52,10 +52,10 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInBasketTopTest3(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getThirdProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
+        shoppingSteps.enterSubmitButton();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getThirdProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -66,13 +66,13 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTwoGoodsInBasketTop(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getFirstProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterSubmitButton();
         utils.sleep();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getFirstProductPrice() + orderData.getSecondProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -84,16 +84,16 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTreeGoodsInBasketTop(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getThirdProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getFourthProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFourthProductName());
+        shoppingSteps.enterSubmitButton();
         utils.sleep();
 
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromBasketTop());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getSecondProductPrice() + orderData.getThirdProductPrice()
                 + orderData.getFourthProductPrice());
 
@@ -105,11 +105,11 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfGoodInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getFirstProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromCart());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromCart());
         double expected = utils.roundOf(orderData.getFirstProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -120,13 +120,13 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTwoGoodsInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getFirstProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromCart());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromCart());
         double expected = utils.roundOf(orderData.getFirstProductPrice() + orderData.getSecondProductPrice());
 
         Assert.assertEquals(actual, expected);
@@ -138,15 +138,15 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkPriceOfTreeGoodsInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getThirdProductName());
-        pizzaShoppingSteps.enterSubmitButton();
-        pizzaShoppingSteps.enterGoodButton(orderData.getFourthProductName());
-        pizzaShoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterGoodButton(orderData.getFourthProductName());
+        shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
-        double actual = Double.parseDouble(pizzaShoppingSteps.getPriceFromCart());
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromCart());
         double expected = utils.roundOf(orderData.getSecondProductPrice() + orderData.getThirdProductPrice()
                 + orderData.getFourthProductPrice());
 
@@ -158,10 +158,10 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkSortingByType(PizzaTypeData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        pizzaShoppingSteps.choosePizzaType(orderData.getPizzaType());
-        pizzaShoppingSteps.enterResultButton();
+        shoppingSteps.choosePizzaType(orderData.getPizzaType());
+        shoppingSteps.enterResultButton();
 
-        List<String> actual = pizzaShoppingSteps.getArrayPizzaNames();
+        List<String> actual = shoppingSteps.getArrayPizzaNames();
         List<String> expected = orderData.getPizzaNames();
         Collections.sort(actual);
         Collections.sort(expected);

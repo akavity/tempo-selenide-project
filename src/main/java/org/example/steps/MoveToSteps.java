@@ -16,7 +16,7 @@ public class MoveToSteps {
 
     @Step("Move to order type")
     public void moveToOrderType(String orderType) {
-        log.info("Move to " + orderType);
+        log.info("/// Move to " + orderType);
         moveToPage.getTOrderTypeButton(orderType).click();
     }
 
