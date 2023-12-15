@@ -18,7 +18,7 @@ public class ShoppingPage {
     private final ElementsCollection goodsNamesFields = $$(By.xpath("//h3//span"));
 
     public SelenideElement getGoodNameField(String goodName) {
-        return $(By.xpath("//h3//span[contains(text(), ' + goodName + ')]"));
+        return $(By.xpath("//h3//span[contains(text(), '" + goodName + "')]"));
     }
 
     public SelenideElement getPizzaTypeButton(String pizzaType) {
