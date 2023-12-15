@@ -1,6 +1,5 @@
 package org.example;
 
-import io.qameta.allure.Flaky;
 import org.example.annotatins.TestData;
 import org.example.models.OrderTestData;
 import org.example.models.PizzaTypeData;
@@ -78,7 +77,6 @@ public class OrderShoppingTest extends BaseTest {
         Assert.assertEquals(actual, expected);
     }
 
-    @Flaky
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
     @Test(description = "Check the price of three goods in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
@@ -132,7 +130,6 @@ public class OrderShoppingTest extends BaseTest {
         Assert.assertEquals(actual, expected);
     }
 
-    @Flaky
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
     @Test(description = "Check the price of goods in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
