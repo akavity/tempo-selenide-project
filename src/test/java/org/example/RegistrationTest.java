@@ -1,3 +1,6 @@
+package org.example;
+
+import org.example.annotatins.TestData;
 import org.example.models.UserData;
 import org.example.steps.MoveToSteps;
 import org.example.steps.RegistrationSteps;
@@ -9,14 +12,16 @@ public class RegistrationTest extends BaseTest {
     RegistrationSteps registrationSteps = new RegistrationSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
 
+    @TestData(jsonFile = "userData", model = "UserData")
     @Test(description = "Check registration form data",
-            dataProvider = "userData", dataProviderClass = JsonReader.class)
-    public void checkTempoPizzaRegistration(UserData userData) {
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void makeMistakeDuringRegistration(UserData userData) {
         moveToSteps.moveToRegistrationForm();
         registrationSteps.enterEmail(userData.getEmail());
         registrationSteps.enterPassword(userData.getPassword());
         registrationSteps.repeatPassword(userData.getPassword());
         registrationSteps.enterUser(userData.getUserData());
+        registrationSteps.enterPhone(userData.getPhone());
         registrationSteps.clickGenderButton();
         registrationSteps.chooseAge(userData.getAge());
         registrationSteps.chooseOccupation(userData.getOccupation());
@@ -27,12 +32,13 @@ public class RegistrationTest extends BaseTest {
         registrationSteps.enterFloor(userData.getFloor());
         registrationSteps.clickSubmitButton();
 
-        Assert.assertTrue(registrationSteps.isThereErrorPhone());
+        Assert.assertTrue(registrationSteps.isThereErrorPhone(userData.getError()));
     }
 
+    @TestData(jsonFile = "userData", model = "UserData")
     @Test(description = "Check user registered",
-            dataProvider = "userData", dataProviderClass = JsonReader.class)
-    public void checkUserRegistered(UserData userData) {
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void logInAsUnregisteredUser(UserData userData) {
         registrationSteps.enterUserAccountEmail(userData.getEmail());
         registrationSteps.enterUserAccountPassword(userData.getPassword());
         registrationSteps.clickAccountSubmitButton();

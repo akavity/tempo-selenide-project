@@ -14,9 +14,15 @@ public class MoveToSteps {
         moveToPage.getRegistrationButton().click();
     }
 
-    @Step("Move to pizza shopping")
-    public void moveToPizzaShopping() {
-        log.info("Move to  pizza shopping");
-        moveToPage.getPizzaButton().click();
+    @Step("Move to order type")
+    public void moveToOrderType(String orderType) {
+        log.info("/// Move to " + orderType);
+        moveToPage.getTOrderTypeButton(orderType).click();
+    }
+
+    @Step("Move to basket")
+    public void moveToBasket() {
+        log.info("Move to basket");
+        moveToPage.getBasketButton().click();
     }
 }

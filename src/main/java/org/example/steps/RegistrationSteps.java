@@ -8,24 +8,23 @@ import static com.codeborne.selenide.Selectors.withText;
 
 @Log4j2
 public class RegistrationSteps {
-
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Step("Enter email")
     public void enterEmail(String email) {
-        log.info("Enter email");
+        log.info("Enter email: " + email);
         registrationPage.getEmailField().setValue(email);
     }
 
     @Step("Enter password")
     public void enterPassword(String password) {
-        log.info("Enter password");
+        log.info("Enter password: " + password);
         registrationPage.getPasswordField().setValue(password);
     }
 
     @Step("Repeat password")
     public void repeatPassword(String password) {
-        log.info("Repeat password");
+        log.info("Repeat password: " + password);
         registrationPage.getPasswordRepeatField().setValue(password);
     }
 
@@ -37,14 +36,15 @@ public class RegistrationSteps {
 
     @Step("Enter first name, last name")
     public void enterUser(String firstAndSecondNames) {
-        log.info("Enter first name, last name");
+        log.info("Enter first name, last name: " + firstAndSecondNames);
         registrationPage.getUserField().setValue(firstAndSecondNames);
     }
 
     @Step("Enter mobile phone")
     public void enterPhone(String phone) {
-        log.info("Enter mobile phone");
-        registrationPage.getPhoneField().setValue(phone);
+        log.info("Enter mobile phone: " + phone);
+        registrationPage.getPhoneField().click();
+        registrationPage.getPhoneField().sendKeys(phone);
     }
 
     @Step("Click gender button")
@@ -55,45 +55,45 @@ public class RegistrationSteps {
 
     @Step("Choose age")
     public void chooseAge(String age) {
-        log.info("Choose age");
+        log.info("Choose age: " + age);
         registrationPage.getAgeDropDown().click();
         registrationPage.getAgeDropDown().find(withText(age)).click();
     }
 
     @Step("Choose occupation")
     public void chooseOccupation(String occupation) {
-        log.info("Choose occupation");
+        log.info("Choose occupation: " + occupation);
         registrationPage.getOccupationDropDown().click();
         registrationPage.getOccupationDropDown().find(withText(occupation)).click();
     }
 
     @Step("Enter street")
     public void enterStreet(String street) {
-        log.info("Enter street");
+        log.info("Enter street: " + street);
         registrationPage.getStreetField().setValue(street);
     }
 
     @Step("Enter hose")
     public void enterHouse(String house) {
-        log.info("Enter hose");
+        log.info("Enter hose: " + house);
         registrationPage.getHouseField().setValue(house);
     }
 
     @Step("Enter apartment")
     public void enterApartment(String apartment) {
-        log.info("Enter apartment");
+        log.info("Enter apartment: " + apartment);
         registrationPage.getApartmentField().setValue(apartment);
     }
 
     @Step("Enter porch")
     public void enterPorch(String porch) {
-        log.info("Enter porch");
+        log.info("Enter porch: " + porch);
         registrationPage.getPorchField().setValue(porch);
     }
 
     @Step("Enter floor")
     public void enterFloor(String floor) {
-        log.info("Enter floor");
+        log.info("Enter floor: " + floor);
         registrationPage.getFloorField().setValue(floor);
     }
 
@@ -103,21 +103,21 @@ public class RegistrationSteps {
         registrationPage.getSubmitButton().click();
     }
 
-    @Step("Get Error Phone")
-    public boolean isThereErrorPhone() {
+    @Step("Get Error")
+    public boolean isThereErrorPhone(String error) {
         log.info("Get Error Phone");
-        return registrationPage.getErrorPhone().isDisplayed();
+        return registrationPage.getErrorField(error).isDisplayed();
     }
 
     @Step("Enter user account email")
     public void enterUserAccountEmail(String email) {
-        log.info("Enter user account email");
+        log.info("Enter user account email: " + email);
         registrationPage.getUserAccountEmail().setValue(email);
     }
 
     @Step("Enter user account password")
     public void enterUserAccountPassword(String password) {
-        log.info("Enter user account password");
+        log.info("Enter user account password: " + password);
         registrationPage.getUserAccountPassword().setValue(password);
     }
 

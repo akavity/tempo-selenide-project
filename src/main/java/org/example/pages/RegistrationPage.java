@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage {
-
     private final SelenideElement accountEmailField =
             $(By.xpath("//input[@name='astroauth_login']"));
     private final SelenideElement accountPasswordField =
@@ -26,13 +25,9 @@ public class RegistrationPage {
     private final SelenideElement phoneField =
             $(By.xpath("//input[@name='phone']"));
     private final SelenideElement genderMaleButton =
-            $(By.xpath("//input[@ value='мужской']"));
-    private final SelenideElement genderFemaleButton =
-            $(By.xpath("//input[@ value='женский']"));
-    private final SelenideElement subscribeButton =
-            $(By.xpath("//input[@name='subscribe']"));
+            $(By.xpath("//input[@value='мужской']"));
     private final SelenideElement ageDropDown =
-            $(By.xpath("//select[@ name='age']"));
+            $(By.xpath("//select[@name='age']"));
     private final SelenideElement occupationDropDown =
             $(By.xpath("//select[@name='occupation']"));
     private final SelenideElement streetField =
@@ -47,8 +42,10 @@ public class RegistrationPage {
             $(By.xpath("//input[@name='floor']"));
     private final SelenideElement submitButton =
             $(By.xpath("//button[contains (@class,'btn button')]"));
-    private final SelenideElement errorPhone =
-            $(By.xpath("//div[contains (text(),'Контактный телефон')]"));
+
+    public SelenideElement getErrorField(String errorType) {
+        return $(By.xpath("//div[contains (text(),'" + errorType + "')]"));
+    }
 
     public SelenideElement getUserAccountEmail() {
         return accountEmailField;
@@ -90,14 +87,6 @@ public class RegistrationPage {
         return genderMaleButton;
     }
 
-    public SelenideElement getGenderFemaleButton() {
-        return genderFemaleButton;
-    }
-
-    public SelenideElement getSubscribeButton() {
-        return subscribeButton;
-    }
-
     public SelenideElement getAgeDropDown() {
         return ageDropDown;
     }
@@ -124,10 +113,6 @@ public class RegistrationPage {
 
     public SelenideElement getFloorField() {
         return floorField;
-    }
-
-    public SelenideElement getErrorPhone() {
-        return errorPhone;
     }
 
     public SelenideElement getSubmitButton() {

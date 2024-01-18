@@ -1,60 +1,35 @@
 package org.example.utils;
 
-import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
-import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
-import org.example.models.PizzaTestData;
-import org.example.models.UserData;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+import org.example.annotatins.TestData;
 import org.testng.annotations.DataProvider;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class JsonReader {
-    @DataProvider(name = "userData")
-    public Object[][] getUserData() throws IOException {
-        String filePath = "src/test/resources/test-data/userData.json";
-        List<UserData> userDataList = readTestDataFromJson(filePath);
+    @DataProvider
+    public Object[][] getData(Method method) throws FileNotFoundException {
+        String jsonData = JsonParser.parseReader(new FileReader("src/test/resources/test-data/"
+                + method.getAnnotation(TestData.class).jsonFile() + ".json")).toString();
 
-        Object[][] data = new Object[userDataList.size()][1];
-        for (int i = 0; i < userDataList.size(); i++) {
-            data[i][0] = userDataList.get(i);
+        ArrayList<Object> list = null;
+        try {
+            list = new Gson().fromJson(jsonData, TypeToken.getParameterized(List.class,
+                    Class.forName("org.example.models." + method.getAnnotation(TestData.class)
+                            .model())).getType());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
-        return data;
-    }
-
-    private List<UserData> readTestDataFromJson(String filePath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        File file = new File(filePath);
-
-        try (FileInputStream fis = new FileInputStream(file)) {
-            return mapper.readValue(fis, new TypeReference<>() {
-            });
-        }
-    }
-
-    @DataProvider(name = "pizzaTestData")
-    public Object[][] getPizzaData() throws IOException {
-        String filePath = "src/test/resources/test-data/pizzaTestData.json";
-        List<PizzaTestData> pizzaTestDataList = readPizzaDataFromJson(filePath);
-
-        Object[][] data = new Object[pizzaTestDataList.size()][1];
-        for (int i = 0; i < pizzaTestDataList.size(); i++) {
-            data[i][0] = pizzaTestDataList.get(i);
-        }
-
-        return data;
-    }
-
-    private List<PizzaTestData> readPizzaDataFromJson(String filePath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        File file = new File(filePath);
-
-        try (FileInputStream fis = new FileInputStream(file)) {
-            return mapper.readValue(fis, new TypeReference<>() {
-            });
-        }
+        return Objects.requireNonNull(list).stream()
+                .map(data -> new Object[]{data})
+                .toArray(Object[][]::new);
     }
 }

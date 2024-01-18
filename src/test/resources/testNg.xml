@@ -1,20 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="MainTest">
     <test name="MainTest" parallel="false">
         <classes>
-            <class name="RegistrationTest">
+            <class name="org.example.RegistrationTest">
                 <methods>
-                    <include name="checkTempoPizzaRegistration"/>
-                    <include name="checkUserRegistered"/>
+                    <include name="makeMistakeDuringRegistration"/>
+                    <include name="logInAsUnregisteredUser"/>
                 </methods>
             </class>
-            <class name="PizzaShoppingTest">
+            <class name="org.example.OrderShoppingTest">
                 <methods>
-                    <include name="checkPizzaShoppingTest1"/>
-                    <include name="checkPizzaShoppingTest2"/>
-                    <include name="checkPizzaShoppingTest3"/>
-                    <include name="checkPizzaShoppingTest4"/>
-                    <include name="checkPizzaShoppingTest5"/>
+                    <include name="checkPriceOfGoodInBasketTopTest1"/>
+                    <include name="checkPriceOfGoodInBasketTopTest2"/>
+                    <include name="checkPriceOfGoodInBasketTopTest3"/>
+                    <include name="checkPriceOfTwoGoodsInBasketTop"/>
+                    <include name="checkPriceOfTreeGoodsInBasketTop"/>
+                    <include name="checkPriceOfGoodInCart"/>
+                    <include name="checkPriceOfTwoGoodsInCart"/>
+                    <include name="checkPriceOfTreeGoodsInCart"/>
+                    <include name="checkSortingByType"/>
                 </methods>
             </class>
         </classes>
