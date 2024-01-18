@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="MainTest">
-    <test name="MainTest" parallel="false">
+<suite name="MainTest" parallel="tests" thread-count="2">
+
+    <test name="Registration">
+        <parameter name="startType" value="selenoid"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="latest"/>
         <classes>
             <class name="org.example.RegistrationTest">
                 <methods>
@@ -9,6 +13,14 @@
                     <include name="logInAsUnregisteredUser"/>
                 </methods>
             </class>
+        </classes>
+    </test>
+
+    <test name="Shopping">
+        <parameter name="startType" value="selenoid"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="version" value="latest"/>
+        <classes>
             <class name="org.example.OrderShoppingTest">
                 <methods>
                     <include name="checkPriceOfGoodInBasketTopTest1"/>
@@ -24,4 +36,5 @@
             </class>
         </classes>
     </test>
+
 </suite>
