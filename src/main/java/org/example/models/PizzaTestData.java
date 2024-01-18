@@ -11,7 +11,9 @@ public class PizzaTestData {
     double bavariaPizzaPrice;
     double temptingPizzaPrice;
     double sicilyPizzaPrice;
+    double vesuviusPizzaPrice;
     String bavariaPizzaName;
     String temptingPizzaName;
     String sicilyPizzaName;
+    String vesuviusPizzaName;
 }

@@ -1,8 +1,10 @@
 package org.example.utils;
 
+
 import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 import org.example.models.PizzaTestData;
+import org.example.models.PizzaTypeData;
 import org.example.models.UserData;
 import org.testng.annotations.DataProvider;
 
@@ -49,6 +51,29 @@ public class JsonReader {
     }
 
     private List<PizzaTestData> readPizzaDataFromJson(String filePath) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File(filePath);
+
+        try (FileInputStream fis = new FileInputStream(file)) {
+            return mapper.readValue(fis, new TypeReference<>() {
+            });
+        }
+    }
+
+    @DataProvider(name = "pizzaTypeData")
+    public Object[][] getPizzaTypeData() throws IOException {
+        String filePath = "src/test/resources/test-data/pizzaTypeData.json";
+        List<PizzaTypeData> pizzaTypeDataList = readPizzaTypeDataFromJson(filePath);
+
+        Object[][] data = new Object[pizzaTypeDataList.size()][1];
+        for (int i = 0; i < pizzaTypeDataList.size(); i++) {
+            data[i][0] = pizzaTypeDataList.get(i);
+        }
+
+        return data;
+    }
+
+    private List<PizzaTypeData> readPizzaTypeDataFromJson(String filePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(filePath);
 

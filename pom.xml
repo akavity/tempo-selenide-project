@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
-            <version>6.15.0</version>
+            <version>6.19.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
         <dependency>

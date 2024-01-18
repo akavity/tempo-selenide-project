@@ -1,0 +1,48 @@
+package org.example.pages;
+
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
+public class ShoppingPage {
+    private final SelenideElement submitButton =
+            $(By.xpath("//div[@class='popupContent']//div[@class='order-btn']"));
+    private final SelenideElement resultButton = $(By.id("getResultPickup"));
+    private final SelenideElement priceBasketTopField =
+            $(By.xpath("//div[@class='basketOuter']//span[@class='bs-price']//span[@class='price_byn']"));
+    private final SelenideElement priceCartField =
+            $(By.xpath("//div[@id='basket_sum_all']//span[@class='price_byn']"));
+    private final ElementsCollection goodsNamesFields = $$(By.xpath("//h3//span"));
+
+    public SelenideElement getPizzaTypeButton(String pizzaType) {
+        return $(By.xpath("//div[@class='pizzaType']//label[@class='" + pizzaType + "']"));
+    }
+
+    public SelenideElement getGoodButton(String goodName) {
+        return $(By.xpath("//span[contains(text(), '" + goodName + "')]/../" +
+                "following-sibling::div//div[@class='order-btn']"));
+    }
+
+    public SelenideElement getSubmitButton() {
+        return submitButton;
+    }
+
+    public SelenideElement getResultButton() {
+        return resultButton;
+    }
+
+    public SelenideElement getPriceBasketTopField() {
+        return priceBasketTopField;
+    }
+
+    public SelenideElement getPriceCartField() {
+        return priceCartField;
+    }
+
+    public ElementsCollection getGoodsNames() {
+        return goodsNamesFields;
+    }
+}
