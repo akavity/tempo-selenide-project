@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MainTest">
+    <test name="MainTest" parallel="false">
+        <classes>
+            <class name="RegistrationTest">
+                <methods>
+                    <include name="checkTempoPizzaRegistration"/>
+                    <include name="checkUserRegistered"/>
+                </methods>
+            </class>
+            <class name="PizzaShoppingTest">
+                <methods>
+                    <include name="checkPizzaShoppingTest1"/>
+                    <include name="checkPizzaShoppingTest2"/>
+                    <include name="checkPizzaShoppingTest3"/>
+                    <include name="checkPizzaShoppingTest4"/>
+                    <include name="checkPizzaShoppingTest5"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
