@@ -33,7 +33,7 @@
     "fourthProductPrice": 15.6
   },
   {
-    "orderType": "завтраки",
+    "orderType": "Завтраки",
     "firstProductName": "Английский Завтрак",
     "firstProductPrice": 17.0,
     "secondProductName": "Шакшука",
@@ -44,7 +44,7 @@
     "fourthProductPrice": 4.0
   },
   {
-    "orderType": "десерты",
+    "orderType": "Десерты",
     "firstProductName": "Фисташка-Малина",
     "firstProductPrice": 10.5,
     "secondProductName": "Брауни",
@@ -55,7 +55,7 @@
     "fourthProductPrice": 9.1
   },
   {
-    "orderType": "детское меню",
+    "orderType": "Детское меню",
     "firstProductName": "Клоун",
     "firstProductPrice": 10.5,
     "secondProductName": "Каруселька",
