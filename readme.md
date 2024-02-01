@@ -5,8 +5,8 @@
 
 * Test 1 - Test 3. Add an item to the cart and check its price in the cart (one, two, three items).
 * Test 4 - Test 6. Add an item to the cart and check its price in the top cart (one, two, three items).
-* Test 7: Sort pizza by type using the filter button.
-* Test 8: Log in as an unregistered user.
+* Test 7. Sort pizza by type using the filter button.
+* Test 8. Log in as an unregistered user.
 * Test 9. Enter incorrect information when registering.
 
 
