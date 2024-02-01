@@ -31,5 +31,38 @@
     "thirdProductPrice": 8.9,
     "fourthProductName": "Цезарь с теплой курицей",
     "fourthProductPrice": 15.6
+  },
+  {
+    "orderType": "завтраки",
+    "firstProductName": "Английский Завтрак",
+    "firstProductPrice": 17.0,
+    "secondProductName": "Шакшука",
+    "secondProductPrice": 12.8,
+    "thirdProductName": "Яйца Бенедикт с лососем",
+    "thirdProductPrice": 14.8,
+    "fourthProductName": "Овсяная каша",
+    "fourthProductPrice": 4.0
+  },
+  {
+    "orderType": "десерты",
+    "firstProductName": "Фисташка-Малина",
+    "firstProductPrice": 10.5,
+    "secondProductName": "Брауни",
+    "secondProductPrice": 12.1,
+    "thirdProductName": "Чизкейк",
+    "thirdProductPrice": 10.0,
+    "fourthProductName": "Тропик",
+    "fourthProductPrice": 9.1
+  },
+  {
+    "orderType": "детское меню",
+    "firstProductName": "Клоун",
+    "firstProductPrice": 10.5,
+    "secondProductName": "Каруселька",
+    "secondProductPrice": 7.9,
+    "thirdProductName": "Кораблик",
+    "thirdProductPrice": 9.6,
+    "fourthProductName": "Цветные лучики",
+    "fourthProductPrice": 7.7
   }
 ]
