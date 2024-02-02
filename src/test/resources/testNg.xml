@@ -30,6 +30,7 @@
                     <include name="checkPriceOfTwoItemsInCart"/>
                     <include name="checkPriceOfTreeItemsInCart"/>
                     <include name="checkSortingByType"/>
+                    <include name="removeItemsFromBasketTop"/>
                 </methods>
             </class>
         </classes>

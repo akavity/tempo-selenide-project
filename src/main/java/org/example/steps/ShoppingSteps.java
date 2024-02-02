@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.pages.ShoppingPage;
+import org.example.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
 @Log4j2
 public class ShoppingSteps {
     ShoppingPage shoppingPage = new ShoppingPage();
+    Utils utils = new Utils();
 
     @Step("Enter good button")
     public void enterProductButton(String goodName) {
@@ -49,6 +51,25 @@ public class ShoppingSteps {
         log.info("Get price from cart");
         return shoppingPage.getPriceCartField().getText()
                 .replace("р", "").replace("к.", "");
+    }
+
+    @Step("Remove pizza from cart")
+    public void cleanBasketTop() {
+        int flag = 0;
+        while (!shoppingPage.getEmptyBasketField().isDisplayed()) {
+            if (flag == 0) {
+                shoppingPage.getOpenCloseButton().click();
+            }
+            shoppingPage.getRemoveOrderButton().click();
+            utils.sleep(900);
+            flag++;
+        }
+        flag = 0;
+    }
+
+    @Step("The basket top is clean")
+    public boolean isBasketTopClean() {
+        return shoppingPage.getEmptyBasketField().isDisplayed();
     }
 
     @Step("Get array pizza names by type")

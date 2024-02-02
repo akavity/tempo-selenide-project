@@ -137,4 +137,20 @@ public class OrderShoppingTest extends MainTest {
 
         Assert.assertEquals(actual, expected);
     }
+
+    @TestData(jsonFile = "orderTestData", model = "OrderTestData")
+    @Test(description = "Clean the basket top",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void removeItemsFromBasketTop(OrderTestData orderData) {
+        moveToSteps.moveToOrderType(orderData.getOrderType());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterProductButton(orderData.getThirdProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterProductButton(orderData.getFourthProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.cleanBasketTop();
+
+        Assert.assertTrue(shoppingSteps.isBasketTopClean());
+    }
 }
