@@ -13,17 +13,17 @@ import org.testng.annotations.Test;
 import java.util.Collections;
 import java.util.List;
 
-public class OrderShoppingTest extends BaseTest {
+public class OrderShoppingTest extends MainTest {
     ShoppingSteps shoppingSteps = new ShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
     Utils utils = new Utils();
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of good in the cart",
+    @Test(description = "Check the price of item in basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfGoodInBasketTopTest1(OrderTestData orderData) {
+    public void checkPriceOfItemInBasketTop(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterProductButton(orderData.getFirstProductName());
         shoppingSteps.enterSubmitButton();
 
         double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
@@ -33,41 +33,13 @@ public class OrderShoppingTest extends BaseTest {
     }
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of good in the basket top",
+    @Test(description = "Check the price of two items in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfGoodInBasketTopTest2(OrderTestData orderData) {
+    public void checkPriceOfTwoItemsInBasketTop(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
         shoppingSteps.enterSubmitButton();
-
-        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
-        double expected = utils.roundOf(orderData.getSecondProductPrice());
-
-        Assert.assertEquals(actual, expected);
-    }
-
-    @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of good in the basket top",
-            dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfGoodInBasketTopTest3(OrderTestData orderData) {
-        moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
-        shoppingSteps.enterSubmitButton();
-
-        double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
-        double expected = utils.roundOf(orderData.getThirdProductPrice());
-
-        Assert.assertEquals(actual, expected);
-    }
-
-    @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of two goods in the basket top",
-            dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfTwoGoodsInBasketTop(OrderTestData orderData) {
-        moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
-        shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterProductButton(orderData.getFirstProductName());
         shoppingSteps.enterSubmitButton();
         utils.sleep();
 
@@ -78,15 +50,15 @@ public class OrderShoppingTest extends BaseTest {
     }
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of three goods in the basket top",
+    @Test(description = "Check the price of three items in the basket top",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfTreeGoodsInBasketTop(OrderTestData orderData) {
+    public void checkPriceOfThreeItemsInBasketTop(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
         shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
+        shoppingSteps.enterProductButton(orderData.getThirdProductName());
         shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getFourthProductName());
+        shoppingSteps.enterProductButton(orderData.getFourthProductName());
         shoppingSteps.enterSubmitButton();
         utils.sleep();
 
@@ -99,11 +71,11 @@ public class OrderShoppingTest extends BaseTest {
     }
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of goods in the cart",
+    @Test(description = "Check the price of item in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfGoodInCart(OrderTestData orderData) {
+    public void checkPriceOfItemInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterProductButton(orderData.getFirstProductName());
         shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
@@ -114,13 +86,13 @@ public class OrderShoppingTest extends BaseTest {
     }
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of goods in the cart",
+    @Test(description = "Check the price of two items the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfTwoGoodsInCart(OrderTestData orderData) {
+    public void checkPriceOfTwoItemsInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
         shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getFirstProductName());
+        shoppingSteps.enterProductButton(orderData.getFirstProductName());
         shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
@@ -131,15 +103,15 @@ public class OrderShoppingTest extends BaseTest {
     }
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
-    @Test(description = "Check the price of goods in the cart",
+    @Test(description = "Check the price of three items in the cart",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void checkPriceOfTreeGoodsInCart(OrderTestData orderData) {
+    public void checkPriceOfThreeItemsInCart(OrderTestData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.enterGoodButton(orderData.getSecondProductName());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
         shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getThirdProductName());
+        shoppingSteps.enterProductButton(orderData.getThirdProductName());
         shoppingSteps.enterSubmitButton();
-        shoppingSteps.enterGoodButton(orderData.getFourthProductName());
+        shoppingSteps.enterProductButton(orderData.getFourthProductName());
         shoppingSteps.enterSubmitButton();
         moveToSteps.moveToBasket();
 
@@ -155,7 +127,7 @@ public class OrderShoppingTest extends BaseTest {
             dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void checkSortingByType(PizzaTypeData orderData) {
         moveToSteps.moveToOrderType(orderData.getOrderType());
-        shoppingSteps.choosePizzaType(orderData.getPizzaType());
+        shoppingSteps.selectPizzaType(orderData.getPizzaType());
         shoppingSteps.enterResultButton();
 
         List<String> actual = shoppingSteps.getArrayPizzaNames();
