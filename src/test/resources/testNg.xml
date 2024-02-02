@@ -23,14 +23,12 @@
         <classes>
             <class name="org.example.OrderShoppingTest">
                 <methods>
-                    <include name="checkPriceOfGoodInBasketTopTest1"/>
-                    <include name="checkPriceOfGoodInBasketTopTest2"/>
-                    <include name="checkPriceOfGoodInBasketTopTest3"/>
-                    <include name="checkPriceOfTwoGoodsInBasketTop"/>
-                    <include name="checkPriceOfTreeGoodsInBasketTop"/>
-                    <include name="checkPriceOfGoodInCart"/>
-                    <include name="checkPriceOfTwoGoodsInCart"/>
-                    <include name="checkPriceOfTreeGoodsInCart"/>
+                    <include name="checkPriceOfItemInBasketTop"/>
+                    <include name="checkPriceOfTwoItemsInBasketTop"/>
+                    <include name="checkPriceOfTreeItemsInBasketTop"/>
+                    <include name="checkPriceOfItemInCart"/>
+                    <include name="checkPriceOfTwoItemsInCart"/>
+                    <include name="checkPriceOfTreeItemsInCart"/>
                     <include name="checkSortingByType"/>
                 </methods>
             </class>
