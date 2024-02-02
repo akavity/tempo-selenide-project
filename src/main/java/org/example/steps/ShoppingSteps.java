@@ -15,14 +15,14 @@ public class ShoppingSteps {
     ShoppingPage shoppingPage = new ShoppingPage();
 
     @Step("Enter good button")
-    public void enterGoodButton(String goodName) {
+    public void enterProductButton(String goodName) {
         log.info("Enter " + goodName);
-        shoppingPage.getGoodButton(goodName).click();
+        shoppingPage.getProductButton(goodName).click();
     }
 
-    @Step("Choose pizza type")
-    public void choosePizzaType(String pizzaType) {
-        log.info("Choose " + pizzaType + " pizza");
+    @Step("Select pizza type")
+    public void selectPizzaType(String pizzaType) {
+        log.info("Select " + pizzaType + " pizza");
         shoppingPage.getPizzaTypeButton(pizzaType).click();
     }
 
@@ -56,7 +56,7 @@ public class ShoppingSteps {
         log.info("Create array pizza names");
         List<String> arrayPizzaNames = new ArrayList<>();
 
-        for (SelenideElement pizzaText : shoppingPage.getGoodsNames()) {
+        for (SelenideElement pizzaText : shoppingPage.getProductNames()) {
             log.info("fine pizza: " + pizzaText.getText());
             Pattern pattern = Pattern.compile("\"(.*)\"");
             Matcher matcher = pattern.matcher(pizzaText.getText());

@@ -33,15 +33,15 @@
     "fourthProductPrice": 15.6
   },
   {
-    "orderType": "Завтраки",
-    "firstProductName": "Английский Завтрак",
-    "firstProductPrice": 17.0,
-    "secondProductName": "Шакшука",
-    "secondProductPrice": 12.8,
-    "thirdProductName": "Яйца Бенедикт с лососем",
-    "thirdProductPrice": 14.8,
-    "fourthProductName": "Овсяная каша",
-    "fourthProductPrice": 4.0
+    "orderType": "Горячие блюда",
+    "firstProductName": "Драники с лососем и яйцом пашот",
+    "firstProductPrice": 20.8,
+    "secondProductName": "Говяжьи щёки с картофельным пюре",
+    "secondProductPrice": 22.8,
+    "thirdProductName": "Цыпленок Кордон блю",
+    "thirdProductPrice": 20.2,
+    "fourthProductName": "Стейк из говядины",
+    "fourthProductPrice": 34.4
   },
   {
     "orderType": "Десерты",
