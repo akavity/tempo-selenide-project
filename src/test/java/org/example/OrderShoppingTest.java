@@ -3,6 +3,7 @@ package org.example;
 import org.example.annotatins.TestData;
 import org.example.models.OrderTestData;
 import org.example.models.PizzaTypeData;
+import org.example.steps.CartSteps;
 import org.example.steps.MoveToSteps;
 import org.example.steps.ShoppingSteps;
 import org.example.utils.JsonReader;
@@ -16,6 +17,7 @@ import java.util.List;
 public class OrderShoppingTest extends MainTest {
     ShoppingSteps shoppingSteps = new ShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
+    CartSteps cartSteps = new CartSteps();
     Utils utils = new Utils();
 
     @TestData(jsonFile = "orderTestData", model = "OrderTestData")
@@ -61,7 +63,6 @@ public class OrderShoppingTest extends MainTest {
         shoppingSteps.enterProductButton(orderData.getFourthProductName());
         shoppingSteps.enterSubmitButton();
         utils.sleep();
-
 
         double actual = Double.parseDouble(shoppingSteps.getPriceFromBasketTop());
         double expected = utils.roundOf(orderData.getSecondProductPrice() + orderData.getThirdProductPrice()
@@ -152,5 +153,22 @@ public class OrderShoppingTest extends MainTest {
         shoppingSteps.cleanBasketTop();
 
         Assert.assertTrue(shoppingSteps.isBasketTopClean());
+    }
+
+    @TestData(jsonFile = "orderTestData", model = "OrderTestData")
+    @Test(description = "Clean the cart",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void removeItemsFromCart(OrderTestData orderData) {
+        moveToSteps.moveToOrderType(orderData.getOrderType());
+        shoppingSteps.enterProductButton(orderData.getSecondProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterProductButton(orderData.getThirdProductName());
+        shoppingSteps.enterSubmitButton();
+        shoppingSteps.enterProductButton(orderData.getFourthProductName());
+        shoppingSteps.enterSubmitButton();
+        moveToSteps.moveToBasket();
+        cartSteps.cleanCart();
+
+        Assert.assertTrue(cartSteps.isOrderPriceEmpty());
     }
 }
