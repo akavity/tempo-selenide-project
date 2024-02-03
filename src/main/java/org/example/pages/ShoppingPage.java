@@ -17,7 +17,7 @@ public class ShoppingPage {
             $(By.xpath("//div[@id='basket_sum_all']//span[@class='price_byn']"));
     private final ElementsCollection productNamesFields = $$(By.xpath("//h3//span"));
     private final SelenideElement emptyBasketField =
-            $(By.xpath(" // div[contains(@id,'basket')]//span[contains(text(),'пуста')]"));
+            $(By.xpath("// div[contains(@id,'basket')]//span[contains(text(),'пуста')]"));
     private final SelenideElement removeOrderButton = $(By.xpath("//a[@title='Удалить из заказа']"));
     private final SelenideElement openCloseButton =
             $(By.xpath("//div[@class='basket_placeholder']//div[@class='bs-toggler openClose']"));
