@@ -169,6 +169,6 @@ public class OrderShoppingTest extends MainTest {
         moveToSteps.moveToBasket();
         cartSteps.cleanCart();
 
-        Assert.assertTrue(cartSteps.isOrderPriceEmpty());
+        Assert.assertEquals(cartSteps.getTotalPrice(), 0.0);
     }
 }
