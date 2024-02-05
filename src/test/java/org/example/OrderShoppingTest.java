@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 import java.util.Collections;
 import java.util.List;
 
-public class OrderShoppingTest extends MainTest {
+public class OrderShoppingTest extends BaseTest {
     ShoppingSteps shoppingSteps = new ShoppingSteps();
     MoveToSteps moveToSteps = new MoveToSteps();
     CartSteps cartSteps = new CartSteps();
