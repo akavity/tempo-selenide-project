@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.annotatins.TestData;
+import org.example.models.ComponentData;
 import org.example.models.OrderTestData;
 import org.example.models.PizzaTypeData;
 import org.example.steps.CartSteps;
@@ -170,5 +171,47 @@ public class OrderShoppingTest extends MainTest {
         cartSteps.cleanCart();
 
         Assert.assertEquals(cartSteps.getTotalPrice(), 0.0);
+    }
+
+    @TestData(jsonFile = "componentData", model = "ComponentData")
+    @Test(description = "Add components to the order",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    private void addComponentsToOrder(ComponentData componentData) {
+        moveToSteps.moveToOrderType(componentData.getOrderType());
+        shoppingSteps.enterProductButton(componentData.getProductName());
+        shoppingSteps.addComponent(componentData.getFirstComponent());
+        shoppingSteps.addComponent(componentData.getSecondComponent());
+        shoppingSteps.addComponent(componentData.getThirdComponent());
+        shoppingSteps.enterSubmitButton();
+        moveToSteps.moveToBasket();
+
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromCart());
+        double expected = utils.roundOf(componentData.getProductPrice() + componentData.getFirstComponentPrice()
+                + componentData.getSecondComponentPrice() + componentData.getThirdComponentPrice());
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @TestData(jsonFile = "componentData", model = "ComponentData")
+    @Test(description = "Remove components from the order",
+            dataProviderClass = JsonReader.class, dataProvider = "getData")
+    private void removeComponentsFromOrder(ComponentData componentData) {
+        moveToSteps.moveToOrderType(componentData.getOrderType());
+        shoppingSteps.enterProductButton(componentData.getProductName());
+        shoppingSteps.addComponent(componentData.getFirstComponent());
+        shoppingSteps.addComponent(componentData.getSecondComponent());
+        shoppingSteps.addComponent(componentData.getThirdComponent());
+        shoppingSteps.enterSubmitButton();
+        moveToSteps.moveToBasket();
+        cartSteps.clickProductInCart(componentData.getProductName());
+        shoppingSteps.removeComponent(componentData.getFirstComponent());
+        shoppingSteps.removeComponent(componentData.getSecondComponent());
+        shoppingSteps.removeComponent(componentData.getThirdComponent());
+        shoppingSteps.enterModifySubmitButton();
+
+        double actual = Double.parseDouble(shoppingSteps.getPriceFromCart());
+        double expected = utils.roundOf(componentData.getProductPrice());
+
+        Assert.assertEquals(actual, expected);
     }
 }
