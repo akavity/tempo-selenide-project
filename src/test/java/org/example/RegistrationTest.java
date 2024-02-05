@@ -23,8 +23,8 @@ public class RegistrationTest extends BaseTest {
         registrationSteps.enterUser(userData.getUserData());
         registrationSteps.enterPhone(userData.getPhone());
         registrationSteps.clickGenderButton();
-        registrationSteps.chooseAge(userData.getAge());
-        registrationSteps.chooseOccupation(userData.getOccupation());
+        registrationSteps.selectAge(userData.getAge());
+        registrationSteps.selectOccupation(userData.getOccupation());
         registrationSteps.enterStreet(userData.getStreet());
         registrationSteps.enterHouse(userData.getHouse());
         registrationSteps.enterApartment(userData.getApartment());
