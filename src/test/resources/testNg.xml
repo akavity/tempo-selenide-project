@@ -31,6 +31,8 @@
                     <include name="checkPriceOfTreeItemsInCart"/>
                     <include name="checkSortingByType"/>
                     <include name="removeItemsFromBasketTop"/>
+                    <include name="addComponentsToOrder"/>
+                    <include name="removeComponentsFromOrder"/>
                 </methods>
             </class>
         </classes>
