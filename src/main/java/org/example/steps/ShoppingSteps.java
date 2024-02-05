@@ -40,6 +40,12 @@ public class ShoppingSteps {
         shoppingPage.getSubmitButton().click();
     }
 
+    @Step("Enter modify submit button")
+    public void enterModifySubmitButton() {
+        log.info("Enter modify submit button");
+        shoppingPage.getModifySubmitButton().click();
+    }
+
     @Step("Get price from basket top")
     public String getPriceFromBasketTop() {
         log.info("Get price basket top");
@@ -65,6 +71,18 @@ public class ShoppingSteps {
             flag++;
         }
         flag = 0;
+    }
+
+    @Step("Add component to the order")
+    public void addComponent(String component) {
+        log.info("Add component: " + component);
+        shoppingPage.addComponentButton(component).click();
+    }
+
+    @Step("Remove component to the order")
+    public void removeComponent(String component) {
+        log.info("Remove component: " + component);
+        shoppingPage.removeComponentButton(component).click();
     }
 
     @Step("The basket top is clean")
