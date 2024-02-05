@@ -23,8 +23,8 @@ public class MoveToSteps {
     }
 
     @Step("Move to basket")
-    public void moveToBasket() {
+    public void moveToCart() {
         log.info("Move to basket");
-        moveToPage.getBasketButton().click();
+        moveToPage.getCartButton().click();
     }
 }

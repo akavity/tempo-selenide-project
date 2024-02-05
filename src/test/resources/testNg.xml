@@ -12,6 +12,15 @@
                     <include name="makeMistakeDuringRegistration"/>
                     <include name="logInAsUnregisteredUser"/>
                 </methods>
+
+            </class>
+            <class name="org.example.OrderShoppingTest">
+                <methods>
+                    <include name="removeItemsFromBasketTop"/>
+                    <include name="removeItemsFromCart"/>
+                    <include name="addComponentsToOrder"/>
+                    <include name="removeComponentsFromOrder"/>
+                </methods>
             </class>
         </classes>
     </test>
@@ -30,9 +39,6 @@
                     <include name="checkPriceOfTwoItemsInCart"/>
                     <include name="checkPriceOfTreeItemsInCart"/>
                     <include name="checkSortingByType"/>
-                    <include name="removeItemsFromBasketTop"/>
-                    <include name="addComponentsToOrder"/>
-                    <include name="removeComponentsFromOrder"/>
                 </methods>
             </class>
         </classes>

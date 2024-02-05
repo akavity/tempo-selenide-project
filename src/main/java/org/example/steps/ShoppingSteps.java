@@ -16,10 +16,10 @@ public class ShoppingSteps {
     ShoppingPage shoppingPage = new ShoppingPage();
     Utils utils = new Utils();
 
-    @Step("Enter good button")
-    public void enterProductButton(String goodName) {
-        log.info("Enter " + goodName);
-        shoppingPage.getProductButton(goodName).click();
+    @Step("Click product button")
+    public void clickProductButton(String productName) {
+        log.info("Click product button:  " + productName);
+        shoppingPage.getProductButton(productName).click();
     }
 
     @Step("Select pizza type")
@@ -28,21 +28,21 @@ public class ShoppingSteps {
         shoppingPage.getPizzaTypeButton(pizzaType).click();
     }
 
-    @Step("Enter result button")
-    public void enterResultButton() {
-        log.info("Enter result button");
+    @Step("Click result button")
+    public void clickResultButton() {
+        log.info("Click result button");
         shoppingPage.getResultButton().click();
     }
 
-    @Step("Enter submit button")
-    public void enterSubmitButton() {
-        log.info("Enter submit button");
+    @Step("Click submit button")
+    public void clickSubmitButton() {
+        log.info("Click submit button");
         shoppingPage.getSubmitButton().click();
     }
 
-    @Step("Enter modify submit button")
-    public void enterModifySubmitButton() {
-        log.info("Enter modify submit button");
+    @Step("Click modify submit button")
+    public void clickModifySubmitButton() {
+        log.info("Click modify submit button");
         shoppingPage.getModifySubmitButton().click();
     }
 
@@ -59,7 +59,7 @@ public class ShoppingSteps {
                 .replace("р", "").replace("к.", "");
     }
 
-    @Step("Remove pizza from cart")
+    @Step("Remove products from cart")
     public void cleanBasketTop() {
         int flag = 0;
         while (!shoppingPage.getEmptyBasketField().isDisplayed()) {
@@ -70,7 +70,6 @@ public class ShoppingSteps {
             utils.sleep(900);
             flag++;
         }
-        flag = 0;
     }
 
     @Step("Add component to the order")
@@ -79,7 +78,7 @@ public class ShoppingSteps {
         shoppingPage.addComponentButton(component).click();
     }
 
-    @Step("Remove component to the order")
+    @Step("Remove component from the order")
     public void removeComponent(String component) {
         log.info("Remove component: " + component);
         shoppingPage.removeComponentButton(component).click();

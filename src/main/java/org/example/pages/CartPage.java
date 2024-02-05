@@ -15,10 +15,9 @@ public class CartPage {
     private final SelenideElement totalAmount =
             $(By.xpath("//div[@class='checkout']//td[contains(@class,'price s_o')]/span"));
 
-    public SelenideElement getProductNameField(String name) {
-        return $(By.xpath("//div[@id='basket_expand']//a[contains(text(),'" + name + "')]"));
+    public SelenideElement getProductNameField(String productName) {
+        return $(By.xpath("//div[@id='basket_expand']//a[contains(text(),'" + productName + "')]"));
     }
-    //div[contains(@id,'basket_expand')]//div[contains(text(),'" + name + "')]
 
     public SelenideElement getRemoveOrderButton() {
         return deleteProductButton;
