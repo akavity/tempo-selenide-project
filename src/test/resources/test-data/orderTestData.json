@@ -31,5 +31,38 @@
     "thirdProductPrice": 8.9,
     "fourthProductName": "Цезарь с теплой курицей",
     "fourthProductPrice": 15.6
+  },
+  {
+    "orderType": "Горячие блюда",
+    "firstProductName": "Драники с лососем и яйцом пашот",
+    "firstProductPrice": 20.8,
+    "secondProductName": "Говяжьи щёки с картофельным пюре",
+    "secondProductPrice": 22.8,
+    "thirdProductName": "Цыпленок Кордон блю",
+    "thirdProductPrice": 20.2,
+    "fourthProductName": "Стейк из говядины",
+    "fourthProductPrice": 34.4
+  },
+  {
+    "orderType": "Десерты",
+    "firstProductName": "Фисташка-Малина",
+    "firstProductPrice": 10.5,
+    "secondProductName": "Брауни",
+    "secondProductPrice": 12.1,
+    "thirdProductName": "Чизкейк",
+    "thirdProductPrice": 10.0,
+    "fourthProductName": "Тропик",
+    "fourthProductPrice": 9.1
+  },
+  {
+    "orderType": "Детское меню",
+    "firstProductName": "Клоун",
+    "firstProductPrice": 10.5,
+    "secondProductName": "Каруселька",
+    "secondProductPrice": 7.9,
+    "thirdProductName": "Кораблик",
+    "thirdProductPrice": 9.6,
+    "fourthProductName": "Цветные лучики",
+    "fourthProductPrice": 7.7
   }
 ]

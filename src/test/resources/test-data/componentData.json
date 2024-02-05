@@ -1,0 +1,46 @@
+[
+  {
+    "orderType": "Бургеры",
+    "productName": "Бургер с говядиной",
+    "productPrice": 21.1,
+    "firstComponent": "Кетчуп",
+    "firstComponentPrice": 0.9,
+    "secondComponent": "Ранч",
+    "secondComponentPrice": 1.3,
+    "thirdComponent": "горчичный",
+    "thirdComponentPrice": 1.4
+  },
+  {
+    "orderType": "Бургеры",
+    "productName": "Бургер с курицей и рукколой",
+    "productPrice": 18.6,
+    "firstComponent": "сырный",
+    "firstComponentPrice": 2.2,
+    "secondComponent": "Охотничий",
+    "secondComponentPrice": 2.0,
+    "thirdComponent": "с чесноком",
+    "thirdComponentPrice": 1.3
+  },
+  {
+    "orderType": "Бургеры",
+    "productName": "Двойной бургер с говядиной",
+    "productPrice": 29.9,
+    "firstComponent": "сырный",
+    "firstComponentPrice": 2.2,
+    "secondComponent": "барбекю",
+    "secondComponentPrice": 2.2,
+    "thirdComponent": "пикантный",
+    "thirdComponentPrice": 1.4
+  },
+  {
+    "orderType": "Бургеры",
+    "productName": "Закуска к пиву",
+    "productPrice": 22.6,
+    "firstComponent": "сырный",
+    "firstComponentPrice": 2.2,
+    "secondComponent": "барбекю",
+    "secondComponentPrice": 2.2,
+    "thirdComponent": "пикантный",
+    "thirdComponentPrice": 1.4
+  }
+]
