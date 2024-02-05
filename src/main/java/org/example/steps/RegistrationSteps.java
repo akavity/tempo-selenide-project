@@ -53,16 +53,16 @@ public class RegistrationSteps {
         registrationPage.getGenderMaleButton().click();
     }
 
-    @Step("Choose age")
-    public void chooseAge(String age) {
-        log.info("Choose age: " + age);
+    @Step("Select age")
+    public void selectAge(String age) {
+        log.info("Select age: " + age);
         registrationPage.getAgeDropDown().click();
         registrationPage.getAgeDropDown().find(withText(age)).click();
     }
 
-    @Step("Choose occupation")
-    public void chooseOccupation(String occupation) {
-        log.info("Choose occupation: " + occupation);
+    @Step("Select occupation")
+    public void selectOccupation(String occupation) {
+        log.info("Select occupation: " + occupation);
         registrationPage.getOccupationDropDown().click();
         registrationPage.getOccupationDropDown().find(withText(occupation)).click();
     }

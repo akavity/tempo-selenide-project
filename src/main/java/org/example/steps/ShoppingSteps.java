@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.example.pages.ShoppingPage;
+import org.example.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,29 +14,36 @@ import java.util.regex.Pattern;
 @Log4j2
 public class ShoppingSteps {
     ShoppingPage shoppingPage = new ShoppingPage();
+    Utils utils = new Utils();
 
-    @Step("Enter good button")
-    public void enterGoodButton(String goodName) {
-        log.info("Enter " + goodName);
-        shoppingPage.getGoodButton(goodName).click();
+    @Step("Click product button")
+    public void clickProductButton(String productName) {
+        log.info("Click product button:  " + productName);
+        shoppingPage.getProductButton(productName).click();
     }
 
-    @Step("Choose pizza type")
-    public void choosePizzaType(String pizzaType) {
-        log.info("Choose " + pizzaType + " pizza");
+    @Step("Select pizza type")
+    public void selectPizzaType(String pizzaType) {
+        log.info("Select " + pizzaType + " pizza");
         shoppingPage.getPizzaTypeButton(pizzaType).click();
     }
 
-    @Step("Enter result button")
-    public void enterResultButton() {
-        log.info("Enter result button");
+    @Step("Click result button")
+    public void clickResultButton() {
+        log.info("Click result button");
         shoppingPage.getResultButton().click();
     }
 
-    @Step("Enter submit button")
-    public void enterSubmitButton() {
-        log.info("Enter submit button");
+    @Step("Click submit button")
+    public void clickSubmitButton() {
+        log.info("Click submit button");
         shoppingPage.getSubmitButton().click();
+    }
+
+    @Step("Click modify submit button")
+    public void clickModifySubmitButton() {
+        log.info("Click modify submit button");
+        shoppingPage.getModifySubmitButton().click();
     }
 
     @Step("Get price from basket top")
@@ -51,12 +59,42 @@ public class ShoppingSteps {
                 .replace("р", "").replace("к.", "");
     }
 
+    @Step("Remove products from cart")
+    public void cleanBasketTop() {
+        int flag = 0;
+        while (!shoppingPage.getEmptyBasketField().isDisplayed()) {
+            if (flag == 0) {
+                shoppingPage.getOpenCloseButton().click();
+            }
+            shoppingPage.getRemoveOrderButton().click();
+            utils.sleep(900);
+            flag++;
+        }
+    }
+
+    @Step("Add component to the order")
+    public void addComponent(String component) {
+        log.info("Add component: " + component);
+        shoppingPage.addComponentButton(component).click();
+    }
+
+    @Step("Remove component from the order")
+    public void removeComponent(String component) {
+        log.info("Remove component: " + component);
+        shoppingPage.removeComponentButton(component).click();
+    }
+
+    @Step("The basket top is clean")
+    public boolean isBasketTopClean() {
+        return shoppingPage.getEmptyBasketField().isDisplayed();
+    }
+
     @Step("Get array pizza names by type")
     public List<String> getArrayPizzaNames() {
         log.info("Create array pizza names");
         List<String> arrayPizzaNames = new ArrayList<>();
 
-        for (SelenideElement pizzaText : shoppingPage.getGoodsNames()) {
+        for (SelenideElement pizzaText : shoppingPage.getProductNames()) {
             log.info("fine pizza: " + pizzaText.getText());
             Pattern pattern = Pattern.compile("\"(.*)\"");
             Matcher matcher = pattern.matcher(pizzaText.getText());
