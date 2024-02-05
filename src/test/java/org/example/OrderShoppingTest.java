@@ -176,7 +176,7 @@ public class OrderShoppingTest extends BaseTest {
     @TestData(jsonFile = "componentData", model = "ComponentData")
     @Test(description = "Add components to the order",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    private void addComponentsToOrder(ComponentData componentData) {
+    public void addComponentsToOrder(ComponentData componentData) {
         moveToSteps.moveToOrderType(componentData.getOrderType());
         shoppingSteps.clickProductButton(componentData.getProductName());
         shoppingSteps.addComponent(componentData.getFirstComponent());
@@ -195,7 +195,7 @@ public class OrderShoppingTest extends BaseTest {
     @TestData(jsonFile = "componentData", model = "ComponentData")
     @Test(description = "Remove components from the order",
             dataProviderClass = JsonReader.class, dataProvider = "getData")
-    private void removeComponentsFromOrder(ComponentData componentData) {
+    public void removeComponentsFromOrder(ComponentData componentData) {
         moveToSteps.moveToOrderType(componentData.getOrderType());
         shoppingSteps.clickProductButton(componentData.getProductName());
         shoppingSteps.addComponent(componentData.getFirstComponent());
