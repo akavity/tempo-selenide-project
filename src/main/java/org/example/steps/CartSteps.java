@@ -31,6 +31,12 @@ public class CartSteps {
         return result;
     }
 
+    @Step("Click on the product")
+    public void clickProductInCart(String product) {
+        log.info("Click on ..." + product + "... in the cart");
+        cartPage.getProductNameField(product).click();
+    }
+
     private boolean isPriceStringEmpty(SelenideElement text) {
         String result = text.getText();
         boolean emptyString = result.isEmpty();
