@@ -1,0 +1,13 @@
+[
+  {
+    "orderType": "Бургеры",
+    "productName": "Бургер с говядиной",
+    "productPrice": 21.1,
+    "firstComponent": "Кетчуп",
+    "firstComponentPrice": 0.9,
+    "secondComponent": "Ранч",
+    "secondComponentPrice": 1.3,
+    "thirdComponent": "горчичный",
+    "thirdComponentPrice": 1.4
+  }
+]
