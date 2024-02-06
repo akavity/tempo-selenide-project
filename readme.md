@@ -8,6 +8,10 @@
 * Test 7. Sort pizza by type using the filter button.
 * Test 8. Log in as an unregistered user.
 * Test 9. Enter incorrect information when registering.
+* Test 10. Remove items from the top basket.
+* Test 11. Remove items from the cart.
+* Test 12. Add extra components to an order.
+* Test 13. Remove extra components from an order.
 
 
 ## Technologies:
